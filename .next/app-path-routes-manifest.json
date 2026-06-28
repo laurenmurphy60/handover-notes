@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/work/[slug]/page": "/work/[slug]",
+  "/work/page": "/work",
+  "/writing/[slug]/page": "/writing/[slug]",
+  "/writing/page": "/writing",
+  "/now/page": "/now",
+  "/about/page": "/about"
+}
