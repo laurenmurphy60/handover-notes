@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Alumni_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Alumni_Sans, DM_Sans } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
@@ -17,7 +17,7 @@ const body = DM_Sans({
   weight: ["400", "500", "600"],
 });
 
-const mono = JetBrains_Mono({
+const mono = DM_Sans({
   subsets: ["latin"],
   variable: "--font-mono",
   weight: ["400", "500"],
