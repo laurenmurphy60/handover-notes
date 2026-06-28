@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const links = [
-  { href: "/work", label: "Work" },
-  { href: "/writing", label: "Writing" },
-  { href: "/now", label: "Now" },
+  { href: "/current-work", label: "Current work" },
+  { href: "/previous", label: "Previous handover notes" },
+  { href: "/now", label: "Timeline" },
   { href: "/about", label: "About" },
 ];
 
@@ -15,7 +15,7 @@ export function Nav() {
           href="/"
           className="font-display text-lg font-medium tracking-tight text-ink"
         >
-          Your Name
+          Lauren Murphy
         </Link>
         <nav className="flex items-center gap-6">
           {links.map((link) => (

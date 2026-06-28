@@ -1,8 +1,6 @@
-# Portfolio
+# Handover notes
 
-A design-leadership portfolio built with Next.js, MDX, and Tailwind. Content
-lives as MDX files in `src/content/` — adding a new case study or post means
-adding a file, not writing code.
+Everytime I start thinking about my next role, I start writing my handover notes. Built with Next.js, MDX, and Tailwind. Content lives as MDX files in `src/content/` — adding a new case study or post means adding a file, not writing code. Just a designer, trying to get something up on the internet without asking for help. 
 
 ## Stack
 

@@ -12,7 +12,7 @@ const config: Config = {
           DEFAULT: "#3D5A80",
           deep: "#2C4259",
         },
-        amber: "#E8A33D",
+        amber: "#f28005",
         line: "#E5E1D8",
       },
       fontFamily: {
