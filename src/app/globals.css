@@ -1,24 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui/theme" {
+  name: "caramellatte";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0.001 106.423);
+  --color-base-200: oklch(97% 0.001 106.424);
+  --color-base-300: oklch(92% 0.003 48.717);
+  --color-base-content: oklch(12% 0.042 264.695);
+  --color-primary: oklch(0% 0 0);
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(22.45% 0.075 37.85);
+  --color-secondary-content: oklch(90% 0.076 70.697);
+  --color-accent: oklch(46.44% 0.111 37.85);
+  --color-accent-content: oklch(90% 0.076 70.697);
+  --color-neutral: oklch(55% 0.195 38.402);
+  --color-neutral-content: oklch(98% 0.016 73.684);
+  --color-info: oklch(48% 0.243 264.376);
+  --color-info-content: oklch(98% 0.003 247.858);
+  --color-success: oklch(52% 0.154 150.069);
+  --color-success-content: oklch(98% 0.003 247.858);
+  --color-warning: oklch(55% 0.163 48.998);
+  --color-warning-content: oklch(98% 0.003 247.858);
+  --color-error: oklch(50% 0.213 27.518);
+  --color-error-content: oklch(98% 0.003 247.858);
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 1;
+}
+
+@theme {
+  --color-paper: oklch(98% 0.001 106.423);
+  --color-ink: oklch(12% 0.042 264.695);
+  --color-slate: oklch(40% 0.08 250);
+  --color-slate-deep: oklch(30% 0.07 250);
+  --color-amber: oklch(55% 0.195 38.402);
+  --color-line: oklch(92% 0.003 48.717);
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
-  body {
-    background-color: #faf9f6;
-    color: #1a1b1e;
-  }
-
   ::selection {
-    background-color: #e8a33d;
-    color: #1a1b1e;
+    background-color: oklch(55% 0.195 38.402);
+    color: oklch(98% 0.016 73.684);
   }
 
   :focus-visible {
-    outline: 2px solid #3d5a80;
+    outline: 2px solid oklch(40% 0.08 250);
     outline-offset: 3px;
   }
 
@@ -40,17 +83,17 @@
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #3d5a80;
+    color: oklch(40% 0.08 250);
   }
 
   .prose-custom {
     @apply prose prose-lg max-w-none;
-    --tw-prose-body: #1a1b1e;
-    --tw-prose-headings: #1a1b1e;
-    --tw-prose-links: #3d5a80;
-    --tw-prose-bold: #1a1b1e;
-    --tw-prose-quotes: #2c4259;
-    --tw-prose-quote-borders: #e8a33d;
-    --tw-prose-code: #2c4259;
+    --tw-prose-body: oklch(12% 0.042 264.695);
+    --tw-prose-headings: oklch(12% 0.042 264.695);
+    --tw-prose-links: oklch(40% 0.08 250);
+    --tw-prose-bold: oklch(12% 0.042 264.695);
+    --tw-prose-quotes: oklch(30% 0.07 250);
+    --tw-prose-quote-borders: oklch(55% 0.195 38.402);
+    --tw-prose-code: oklch(30% 0.07 250);
   }
 }
