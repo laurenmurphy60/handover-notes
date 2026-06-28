@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #faf9f6;
+    color: #1a1b1e;
+  }
+
+  ::selection {
+    background-color: #e8a33d;
+    color: #1a1b1e;
+  }
+
+  :focus-visible {
+    outline: 2px solid #3d5a80;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .label-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3d5a80;
+  }
+
+  .prose-custom {
+    @apply prose prose-lg max-w-none;
+    --tw-prose-body: #1a1b1e;
+    --tw-prose-headings: #1a1b1e;
+    --tw-prose-links: #3d5a80;
+    --tw-prose-bold: #1a1b1e;
+    --tw-prose-quotes: #2c4259;
+    --tw-prose-quote-borders: #e8a33d;
+    --tw-prose-code: #2c4259;
+  }
+}
