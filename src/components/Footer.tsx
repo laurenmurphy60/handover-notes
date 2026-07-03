@@ -7,7 +7,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto grid max-w-page gap-4 px-6 py-10 sm:grid-cols-3 sm:items-center">
+      <div className="mx-auto flex max-w-page flex-col gap-4 px-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex gap-5">
           {socials.map((s) => (
             <a
@@ -21,13 +21,14 @@ export function Footer() {
             </a>
           ))}
         </div>
-        <p className="font-mono text-xs text-ink/50 sm:text-center">
-          © {new Date().getFullYear()} — Built with Next.js, MDX, and Tailwind.
-        </p>
-        <p className="max-w-xs font-mono text-xs leading-relaxed text-ink/50 sm:ml-auto sm:text-right">
-          I acknowledge the Gadigal people of the Eora Nation, the Traditional
-          Custodians of the land on which I live and work. I pay my respects
-          to Elders past, present and emerging.
+        <p className="max-w-none font-mono text-xs leading-relaxed text-ink/50 sm:whitespace-nowrap sm:text-right">
+          <span className="block">
+            I acknowledge the Gadigal people of the Eora Nation, the
+            Traditional Custodians of the land on which I live and work.
+          </span>
+          <span className="block">
+            I pay my respects to Elders past, present and emerging.
+          </span>
         </p>
       </div>
     </footer>
