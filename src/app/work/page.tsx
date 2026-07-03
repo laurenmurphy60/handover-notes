@@ -32,8 +32,21 @@ export default function WorkIndexPage() {
               <p className="mt-1 text-sm text-ink/70">{item.company}</p>
             </div>
             <div className="flex-1">
-              <h2 className="font-display text-xl text-ink group-hover:text-slate">
+              <h2 className="flex items-center gap-2 font-display text-xl text-ink group-hover:text-slate">
                 {item.title}
+                {item.protected && (
+                  <svg
+                    aria-label="Password protected"
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5 shrink-0 text-ink/40"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <rect x="5" y="11" width="14" height="9" rx="1.5" />
+                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                  </svg>
+                )}
               </h2>
               <p className="mt-1 text-sm leading-relaxed text-ink/65">
                 {item.summary}
