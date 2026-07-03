@@ -16,9 +16,14 @@ const config: Config = {
         line: "#E5E1D8",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+      },
+      fontWeight: {
+        bold: "600",
+        extrabold: "600",
+        black: "600",
       },
       maxWidth: {
         prose: "42rem",

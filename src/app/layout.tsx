@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Alumni_Sans, DM_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 
-const display = Alumni_Sans({
+const display = DM_Sans({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
 });
 

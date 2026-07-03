@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const links = [
-  { href: "/current-work", label: "Current work" },
-  { href: "/previous", label: "Previous handover notes" },
-  { href: "/now", label: "Timeline" },
+  { href: "/work", label: "Current work" },
+  { href: "/writing", label: "Previous work" },
+  { href: "/now", label: "Milestones" },
   { href: "/about", label: "About" },
 ];
 
