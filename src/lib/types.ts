@@ -8,6 +8,7 @@ export type WorkFrontmatter = {
   metric?: string; // the one number that matters, e.g. "Grew team 3 → 14"
   featured?: boolean;
   draft?: boolean;
+  protected?: boolean; // require the site-wide password before showing the full write-up
 };
 
 export type NowFrontmatter = {

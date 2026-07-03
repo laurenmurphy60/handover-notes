@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllPreviousWork, getPreviousWorkBySlug } from "@/lib/content";
 import { MdxContent } from "@/components/MdxContent";
+import { ArticleGate } from "@/components/ArticleGate";
+import { isSessionUnlocked } from "@/lib/auth";
 
 export async function generateStaticParams() {
   return getAllPreviousWork().map((item) => ({ slug: item.slug }));
@@ -35,6 +37,10 @@ export default async function PreviousWorkDetailPage({
   }
 
   const { meta, content } = getPreviousWorkBySlug(slug);
+
+  if (meta.protected && !(await isSessionUnlocked())) {
+    return <ArticleGate title={meta.title} backHref="/writing" />;
+  }
 
   return (
     <article className="mx-auto max-w-prose px-6 py-16 sm:py-20">
