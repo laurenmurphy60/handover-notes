@@ -10,14 +10,6 @@ export type WorkFrontmatter = {
   draft?: boolean;
 };
 
-export type WritingFrontmatter = {
-  title: string;
-  date: string; // ISO format: "2026-03-01"
-  summary: string;
-  tags: string[];
-  draft?: boolean;
-};
-
 export type NowFrontmatter = {
   date: string; // ISO format
   tag: "shipped" | "wrote" | "spoke" | "joined" | "learned" | "other";
