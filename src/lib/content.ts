@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
-import type { ContentMeta, WorkFrontmatter, WritingFrontmatter, NowFrontmatter } from "./types";
+import type { ContentMeta, WorkFrontmatter, NowFrontmatter } from "./types";
 
 const CONTENT_DIR = path.join(process.cwd(), "src/content");
 
@@ -48,25 +48,25 @@ export function getWorkBySlug(slug: string) {
   return { meta: data as WorkFrontmatter, content, slug };
 }
 
-// ---------- Writing ----------
+// ---------- Previous work ----------
 
-export function getAllWriting(): ContentMeta<WritingFrontmatter>[] {
-  return getSlugs("writing")
+export function getAllPreviousWork(): ContentMeta<WorkFrontmatter>[] {
+  return getSlugs("current-work")
     .map((slug) => {
-      const { data, content } = readFile("writing", slug);
+      const { data, content } = readFile("current-work", slug);
       return {
-        ...(data as WritingFrontmatter),
+        ...(data as WorkFrontmatter),
         slug,
         readingTime: readingTime(content).text,
       };
     })
     .filter((item) => notDraft(item.draft))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => (a.featured === b.featured ? 0 : a.featured ? -1 : 1));
 }
 
-export function getWritingBySlug(slug: string) {
-  const { data, content } = readFile("writing", slug);
-  return { meta: data as WritingFrontmatter, content, slug };
+export function getPreviousWorkBySlug(slug: string) {
+  const { data, content } = readFile("current-work", slug);
+  return { meta: data as WorkFrontmatter, content, slug };
 }
 
 // ---------- Now / changelog ----------
