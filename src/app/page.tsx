@@ -29,14 +29,13 @@ export default function HomePage() {
       <section className="mx-auto max-w-page px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
         <p className="label-eyebrow mb-5">Design leadership · Strategy · Systems</p>
         <h1 className="max-w-3xl font-display text-4xl font-medium leading-[1.1] tracking-tight text-ink sm:text-5xl md:text-6xl">
-          I build the rooms where good design becomes{" "}
-          <span className="italic text-slate">inevitable</span>, not lucky.
+          I&apos;m Lauren. My first love was building{" "}
+          <span className="italic text-slate">products</span>.
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
-          Design leader with a decade on the tools and several years now
-          building the teams, systems, and decisions around them. Previously
-          shipped as an IC; now I scale the conditions that let other
-          designers do their best work.
+          More recently, I&apos;ve been leading a design team — helping shape
+          the direction of our products and building practices that make good
+          design and experience easy.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
           <Link
