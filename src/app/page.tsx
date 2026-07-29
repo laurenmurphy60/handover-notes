@@ -9,11 +9,11 @@ export default function HomePage() {
       {/* Hero */}
       <section className="mx-auto max-w-page px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
         <p className="label-eyebrow mb-5">Design leadership · Strategy · Systems</p>
-        <h1 className="max-w-3xl font-display text-4xl font-medium leading-[1.1] tracking-tight text-ink sm:text-5xl md:text-6xl">
+        <h1 className="max-w-2xl font-display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl md:text-4xl">
           I&apos;m Lauren. My first love was building{" "}
           <span className="italic text-slate">products</span>.
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
+        <p className="mt-4 max-w-2xl font-display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl md:text-4xl">
           More recently, I&apos;ve been leading a design team — helping shape
           the direction of our products and building practices that make good
           design and experience easy.
