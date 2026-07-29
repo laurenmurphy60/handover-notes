@@ -1,25 +1,6 @@
 import Link from "next/link";
 import { getAllWork } from "@/lib/content";
 
-const principles = [
-  {
-    title: "Systems over heroics",
-    body: "A team that depends on one brilliant save is one bad week from falling over. I build the process, critique culture, and tooling so good work is the default outcome, not the exception.",
-  },
-  {
-    title: "Design is a P&L lever",
-    body: "I translate craft into the language a business actually moves on: velocity, retention, cost of rework. If a design decision can't be argued in those terms, I keep working until it can.",
-  },
-  {
-    title: "Hire for trajectory, not résumé",
-    body: "The best designers I've grown weren't the most polished on day one. I look for people who improve fast in public, then build the room that lets them.",
-  },
-  {
-    title: "Ship the smallest true thing",
-    body: "Strategy decks don't ship. I push every initiative toward the smallest version that proves the idea in production, then scale what's working.",
-  },
-];
-
 export default function HomePage() {
   const work = getAllWork().filter((w) => w.featured).slice(0, 3);
 
@@ -44,27 +25,6 @@ export default function HomePage() {
           >
             See the work →
           </Link>
-          <Link
-            href="/about"
-            className="rounded-full border border-line px-6 py-3 font-mono text-sm text-ink transition-colors hover:border-slate hover:text-slate"
-          >
-            How I think about design
-          </Link>
-        </div>
-      </section>
-
-      {/* Operating principles */}
-      <section className="border-t border-line bg-ink">
-        <div className="mx-auto max-w-page px-6 py-16 sm:py-20">
-          <p className="label-eyebrow mb-8 text-amber">Operating principles</p>
-          <div className="grid gap-10 sm:grid-cols-2">
-            {principles.map((p) => (
-              <div key={p.title}>
-                <h3 className="font-display text-xl text-paper">{p.title}</h3>
-                <p className="mt-2 text-paper/65 leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
