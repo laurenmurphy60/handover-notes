@@ -1,13 +1,15 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllWork } from "@/lib/content";
+import { ProtectedLink } from "@/components/ProtectedLink";
+import { isSessionUnlocked } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Work — Your Name",
 };
 
-export default function WorkIndexPage() {
+export default async function WorkIndexPage() {
   const work = getAllWork();
+  const unlocked = await isSessionUnlocked();
 
   return (
     <section className="mx-auto max-w-page px-6 py-16 sm:py-20">
@@ -22,9 +24,11 @@ export default function WorkIndexPage() {
 
       <div className="mt-14 divide-y divide-line border-t border-line">
         {work.map((item) => (
-          <Link
+          <ProtectedLink
             key={item.slug}
             href={`/work/${item.slug}`}
+            locked={Boolean(item.protected) && !unlocked}
+            title={item.title}
             className="group flex flex-col gap-3 py-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
           >
             <div className="sm:w-1/4">
@@ -62,7 +66,7 @@ export default function WorkIndexPage() {
                 ))}
               </div>
             </div>
-          </Link>
+          </ProtectedLink>
         ))}
       </div>
 
