@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { getAllWork } from "@/lib/content";
+import { ProtectedLink } from "@/components/ProtectedLink";
+import { isSessionUnlocked } from "@/lib/auth";
 
-export default function HomePage() {
+export default async function HomePage() {
   const work = getAllWork().filter((w) => w.featured).slice(0, 3);
+  const unlocked = await isSessionUnlocked();
 
   return (
     <>
@@ -49,9 +52,11 @@ export default function HomePage() {
         ) : (
           <div className="grid gap-8 sm:grid-cols-3">
             {work.map((item) => (
-              <Link
+              <ProtectedLink
                 key={item.slug}
                 href={`/work/${item.slug}`}
+                locked={Boolean(item.protected) && !unlocked}
+                title={item.title}
                 className="group block border-t border-line pt-5"
               >
                 <p className="font-mono text-xs text-ink/50">{item.period}</p>
@@ -64,7 +69,7 @@ export default function HomePage() {
                 {item.metric && (
                   <p className="mt-3 font-mono text-xs text-amber">{item.metric}</p>
                 )}
-              </Link>
+              </ProtectedLink>
             ))}
           </div>
         )}

@@ -7,7 +7,7 @@ import { cookies } from "next/headers";
 // project settings if you ever want to rotate them without a code change.
 const PASSWORD_HASH =
   process.env.ARTICLE_PASSWORD_HASH ||
-  "$2b$12$ldxTh9qbV0E16GtoDL8waOtwLEUyUIX5m4i/2CH5/HjxbsUYdfH8m";
+  "$2b$12$hsnpfkiK9kiAMtA0UceD3.Twc7Z.8318Dk1pJjw6iHw30dph51sH.";
 
 const SESSION_SECRET =
   process.env.ARTICLE_SESSION_SECRET ||
