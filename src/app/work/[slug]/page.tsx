@@ -17,9 +17,9 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const { meta } = getWorkBySlug(slug);
-    return { title: `${meta.title} — Your Name` };
+    return { title: `${meta.title} — Lauren Murphy` };
   } catch {
-    return { title: "Work — Your Name" };
+    return { title: "Current work — Lauren Murphy" };
   }
 }
 

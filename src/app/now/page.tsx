@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import type { NowFrontmatter } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Now — Your Name",
+  title: "Milestones — Lauren Murphy",
 };
 
 const tagColor: Record<string, string> = {
