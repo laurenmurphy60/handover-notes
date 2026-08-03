@@ -24,10 +24,10 @@ const mono = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Design Leader",
+  title: "Lauren Murphy — Design Leader",
   description:
     "Design leader focused on building teams, systems, and the strategy behind both.",
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://handovernotes.design"),
 };
 
 export default function RootLayout({

@@ -4,7 +4,7 @@ import { ProtectedLink } from "@/components/ProtectedLink";
 import { isSessionUnlocked } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Work — Your Name",
+  title: "Current work — Lauren Murphy",
 };
 
 export default async function WorkIndexPage() {
