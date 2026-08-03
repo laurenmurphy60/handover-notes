@@ -3,7 +3,8 @@ import Link from "next/link";
 const links = [
   { href: "/work", label: "Current work" },
   { href: "/writing", label: "Previous work" },
-  { href: "/now", label: "Milestones" },
+  // Milestones (/now) is hidden from the nav for now — the page itself is
+  // still built and reachable by URL, so this is a one-line change to undo.
   { href: "/about", label: "About" },
 ];
 
