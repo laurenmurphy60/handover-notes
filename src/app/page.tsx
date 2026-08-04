@@ -15,12 +15,12 @@ export default async function HomePage() {
         <h1 className="max-w-2xl font-display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl md:text-4xl">
           I&apos;m Lauren. I love creating{" "}
           <span className="italic text-slate">experiences</span>, so to help
-          me do that I&apos;ve been building and leading a multi-functional
-          team across design, product and behavioural analytics
+          me do that I&apos;ve been building a multi-functional team across
+          design, product and behavioural analytics.
         </h1>
         <p className="mt-4 max-w-2xl font-display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl md:text-4xl">
-          — helping shape strategy and practices that make good work feel
-          easy.
+          — helping shape strategy and practices to make it easy to do good
+          work.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
           <Link
