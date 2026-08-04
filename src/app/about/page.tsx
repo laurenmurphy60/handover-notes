@@ -78,13 +78,9 @@ const skills = [
 export default function AboutPage() {
   return (
     <section className="mx-auto max-w-page px-6 py-16 sm:py-20">
-      <p className="label-eyebrow mb-4">About</p>
-      <h1 className="max-w-2xl font-display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl">
-        Currently shaping a multidisciplinary team spanning design, product and
-        behavioural analytics.
-      </h1>
+      <h1 className="label-eyebrow">About</h1>
 
-      <div className="mt-16 grid gap-16 sm:grid-cols-5">
+      <div className="mt-12 grid gap-16 sm:grid-cols-5">
         <div className="sm:col-span-3">
           <h2 className="font-display text-xl text-ink">Experience</h2>
           <div className="mt-6 space-y-10 border-t border-line pt-8">
