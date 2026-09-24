@@ -1,116 +1,486 @@
 ---
 title: "Off-market trade reporting"
-role: "[Your title]"
-company: "[Company]"
-period: "[Period]"
-summary: "[Dummy summary] Redesigning how participants report trades executed away from the central order book, reducing manual effort and reporting errors in a time-critical regulatory workflow."
-tags: ["service design", "product design", "regulatory"]
+role: "Design Lead"
+company: "ASX"
+period: "2023 — 2025"
+summary: "Modernisation and customer transformation. Leading the experience design for a time-critical trade reporting platform, where participants can have as little as 10 minutes to register a trade."
+tags: ["service design", "product design", "co-design", "usability testing"]
 featured: false
 draft: true
 protected: true
 ---
 
-> **Dummy content.** Replace every section below with the real story before
-> setting `draft: false`.
+- **Role:** Design Lead
+- **Team:** Product designer, plus the wider programme team
+- **Timeline:** December 2023 – May 2025 (research, co-design and validation)
+- **Status:** [e.g. Customer journey, requirements and UX adopted into the replacement platform's implementation plan]
 
-- **Role:** [Your title], leading [team makeup]
-- **Partners:** [e.g. Product, engineering, market operations and compliance]
-- **Timeline:** [e.g. 3 months]
-- **Status:** [e.g. In delivery]
+**In short:** Off-market trade reporting is time critical. Participants can
+have as little as 10 minutes to register a trade, and the legacy platform
+made that hard. With limited design resources, design was focused on the
+areas where it would make a meaningful difference: the core flows and the
+customer journeys. Making the current features easy was the core piece. UX
+became one of the programme's success stories and set the standard for how
+design is embedded in delivery going forward.
 
-**In short:** [One or two sentences on what changed and why it mattered.]
+I led the experience design direction for the modernisation of
+business-critical off-market trade reporting. The work translated fragmented
+customer journeys, manual processes and legacy system constraints into a
+validated future-state product and service experience, connecting
+end-to-end service design, customer co-design, detailed workflows and UI
+patterns.
 
-### Key activities
+Rather than treating the programme purely as an interface redesign, the
+approach was holistic. Current-state blueprints established the systemic
+problems, customer workshops shaped the future direction, and iterative
+usability testing helped de-risk the design before implementation.
 
-- Mapping the current reporting workflow end to end
-- Interviewing participants who report trades daily
-- Service blueprinting across front office, operations and compliance
-- Prototyping and testing a guided reporting flow
-- Aligning product, engineering and market operations on the target state
+### Scope
+
+- Setting the experience design direction across service, UX and UI work
+- Connecting customer needs to the broader platform transformation strategy
+- Guiding the transition from current-state research into future-state concepts and detailed product workflows
+- Establishing alignment across customer-facing and operational journeys
+- Directing participant co-design and iterative product validation
+- Shaping information architecture, interaction models and contextual navigation
+
+### Engagement across
+
+- Derivatives Clearing Product
+- Trading Operations
+- Customer Technical Services
+- Participant Transitions
+- Clearing Operations
+- Compliance
+- External trading participants
 
 ## The challenge
 
-Trades executed away from the central order book still need to be reported
-accurately and within tight regulatory timeframes. [Describe the platform,
-who uses it and why it matters.]
+The off-market trade reporting platform supported the reporting and approval
+of off-market derivatives trades. Over time, its customer and operational
+experience had become constrained by ageing assets, fragmented access,
+limited automation and incomplete digital workflows.
 
-Over time, the reporting process had grown around workarounds: re-keying
-data between systems, checking field formats by hand and chasing
-corrections after submission. [Add specifics.]
+This was not an isolated usability problem. Research across the broader
+clearing journey found recurring issues: manual processing, outdated
+platforms, overuse of email, limited notifications, inaccessible
+information, and workarounds caused by missing system functionality. These
+conditions increased effort for participants and employees, and raised the
+risk of errors in time-critical workflows.
 
-How might we make accurate, on-time reporting the easiest path, rather than
-something participants achieve despite the system?
+At the platform level, customers and employees were dealing with:
 
-## The key usability problem
+- A paper-based access request requiring physical signatures, scanning and email submission
+- Multiple administrative steps to set up firms, administrators and standard users
+- Separate passwords and certificates across legacy systems
+- Limited self-service for password and access management
+- No account segregation between desks or groups within the same participant
+- No mature role- or account-based authorisation model
+- An unstable test environment supported by ageing assets
+- Limited FIX coverage, with some trade types still requiring the web portal
+- Insufficient documentation for technical, security and functional processes
 
-[Describe the most consequential problem, e.g. the form structure mirrored
-the underlying data model rather than how traders and operations staff
-think about a trade.]
+The transformation therefore had to solve several interdependent problems at
+once:
 
-Research surfaced a range of reporting patterns:
+1. Replace a legacy experience without disrupting a regulated trading process
+2. Reduce participant effort in time-constrained workflows
+3. Improve operational visibility and exception management
+4. Introduce stronger roles, permissions and authorisation patterns
+5. Support both API-led and portal-led users
+6. Provide a scalable experience foundation for future capability
 
-- High-volume reporters submitting many trades a day
-- Occasional reporters who forget the rules between submissions
-- Operations teams correcting and amending on behalf of others
-- [Add more]
+## Participant pain points
 
-[If you have it, add a number, e.g. "X% of submissions needed a correction."]
+### Manual, time-critical trade registration
+
+Participants described trade entry as labour-intensive and prone to
+data-entry errors. The interface required significant manual input, offered
+no reusable templates for historical trades, and made bulk upload
+inefficient in some circumstances. Depending on volume, participants could
+spend several hours a day on registration, and strict time limits raised the
+stakes of any friction:
+
+- A 30-minute seller-entry window for EFPs
+- A 10-minute seller-entry window for block trades
+- A 60-minute buy-side EFP window
+- Manual validation taking around three to six minutes per deal when required
+- Participant concerns that interface limitations and manual steps made these cut-offs hard to meet
+
+### Poor status visibility and limited notifications
+
+The portal didn't provide reliable, real-time visibility of trade status.
+Buyers could miss action windows because the platform didn't notify them
+when a seller had registered a trade. Users repeatedly refreshed the page to
+spot changes, while Trading Operations manually checked the system for
+trades awaiting validation.
+
+### Fragmented communication
+
+Trade information moved through email, phone calls and multiple ticketing or
+participant systems. This led to incomplete information, delayed
+registration and weak auditability. ASX also had limited visibility of
+counterparty communication before a transaction reached the platform.
+
+### Weak correction and cancellation workflows
+
+If a trade was entered incorrectly, participants couldn't simply edit or
+cancel it without involving the counterparty or ASX, and the existing API
+didn't support cancellation. Each cancellation incurred a $325 fee,
+including cancellations after validation.
+
+### Inadequate roles and access controls
+
+The access model didn't support segregation between front-office and
+back-office desks, and it lacked account-based permissions and mature role-
+or notional-based authorisation. Participant feedback reinforced the need
+for:
+
+- Front-, middle- and back-office permissions
+- Authoriser roles that could approve and cancel
+- Bulk authorisation
+- Maker/checker controls for manual entry
+- API users capable of approving and cancelling
+- A shared role and permissions model across the off-market trade reporting platform and the wider authorised-channel ecosystem
+
+### Limited product and integration coverage
+
+The API didn't support the complete product set. The GUI didn't support
+multi-leg EFP reporting, and FIX supported only a subset of EFP trades, not
+block trades. Customers had to work across multiple entry methods, which
+limited straight-through workflows.
+
+### Insufficient audit and reporting
+
+Customers couldn't always retrieve reports when they needed them.
+Historical or non-standard reports required help from internal teams,
+customisation was limited, and long exports could lose data.
+
+## Vision and strategy
+
+The scope was defined as an end-to-end service transformation, connecting
+the participant-facing product with onboarding, user access, operational
+validation, reporting, communication and downstream clearing processes.
+This allowed design decisions to be evaluated against the full service
+rather than an isolated collection of screens.
+
+The approach followed three connected modes:
+
+1. Discover and analyse
+2. Ideate and synthesise
+3. Develop and test
+
+Research sessions with subject-matter experts and existing customer feedback
+were used to map the current experience from the outside in, creating a
+current-state service blueprint.
+
+### Research timeline
+
+- **December 2023 – October 2024:** Core research workshops, followed by co-design workshops
+- **October 2024:** First round of participant usability interviews and design playbacks
+- **May 2025:** Second, scenario-based round of usability testing
+
+The resulting customer journey, requirements and UX work became part of the
+wider implementation plan for the replacement platform.
 
 <Figure
-  alt="Current-state journey of an off-market trade report, showing hand-offs, re-keying and correction loops."
-  caption="Current-state reporting journey."
+  alt="The current-state service blueprint, with pain points highlighted."
+  caption="Current-state service blueprint, with pain points highlighted."
+  ratio="21/9"
+  size="2100 × 900px"
+/>
+
+## Workshops as an alignment mechanism
+
+Workshops ran across two rounds, 23 in total.
+
+**Round one: core research (18 workshops)**
+
+- 6 internal employee workshops
+- 12 external customer workshops
+
+**Round two: co-design (5 workshops)**
+
+- 5 external participant workshops focused on off-market trade management, with a subset of participants from the core research
+
+Together, these workshops surfaced recurring themes across notifications,
+messaging, process tools, platforms, enriched trade details, reporting,
+APIs, onboarding, permissions and self-management. The breadth of these
+themes showed the opportunity couldn't be addressed through visual redesign
+alone.
+
+## Roles and permissions
+
+The future direction replaced coarse user categories with a more deliberate
+authorisation model. The focus was translating that technical access model
+into understandable product behaviour:
+
+- What a participant could see
+- Which trades or accounts they could access
+- Which actions they could initiate
+- Which actions required another user
+- How status and ownership should be communicated
+- How access affected navigation, dashboards and actions
+
+## Design system as infrastructure
+
+The design system was treated as infrastructure rather than a styling layer:
+a combination of standardised elements, principles, guidelines, components,
+processes and documentation that creates consistency and efficiency. For
+this platform, that meant reusable approaches for:
+
+- Navigation and page context
+- Tables and filtering
+- Status indicators
+- Pending-action patterns
+- Validation, warning and error states
+- Forms and multi-leg trade entry
+- Approval controls
+- Modals and confirmation messages
+- Audit and history presentation
+
+## Key decisions and trade-offs
+
+### Prioritising core flows
+
+The focus was on the key features rather than new or additional ones.
+Making the current features easy to use was the core piece.
+
+### Interface users first
+
+The interface was the business continuity path for API users. In a
+time-critical situation, it's the most important experience to get right.
+
+### Meaningful error states over long flows
+
+Rather than long, guided flows, the priority was clear and meaningful error
+states at the point of action.
+
+### A steeper learning curve over a slow process
+
+People are in the platform every day. A steeper learning curve was a better
+trade-off than a slow process.
+
+## Leading the work
+
+### Design influence at the right points
+
+The programme was part of a larger piece of work with limited resources.
+Design was focused on the most high-impact areas, where it would make a
+meaningful difference: in-depth work on the customer journeys, and a light
+touch on the process maps.
+
+### Representing design where decisions are made
+
+This meant representing design at key forums, talking through the design
+process, and aligning with the wider group.
+
+### Creating the right conditions for the product designer
+
+Setting expectations early about what design would need and where it needed
+to be included:
+
+- Working closely with front-end engineering
+- Access to customers to test with
+- Prototypes and UAT environments for testing
+- Additional support to capture customer feedback in real time
+
+## Validating and de-risking the work
+
+### Testing round one
+
+- 4 usability interviews
+- Participants from 3 companies
+- High-, medium- and low-volume users
+- 3 participant playback forums: an in-person Sydney session, a Teams showcase and a Zoom showcase
+- Review of onboarding, user access, trade reporting, APIs, the dashboard and trade-entry wireframes
+
+The overall response to the initial concepts was positive, and testing
+exposed important differences between portal and API users. Portal users
+understood the separation between actions and recent trades more quickly.
+API users took longer but adjusted to the concept. Participants consistently
+valued descriptive status language over system codes.
+
+The testing led directly to design recommendations, including:
+
+- Renaming the primary dashboard concept to "Pending Actions"
+- Improving status descriptions
+- Introducing more flexible filtering
+- Supporting user preferences for column order
+- Exploring faster approval without hiding necessary trade detail
+- Clarifying notification and messaging behaviour
+
+### Testing round two
+
+The second round involved six one-on-one interviews across six participant
+companies. Participants ranged from low-volume users completing zero to
+seven trades through to high-volume users handling more than 100 trades on
+busy days. The scenarios covered the dashboard, trade audits, trade entry,
+warnings, bulk upload and cancellation.
+
+This round confirmed several strengths:
+
+- Most participants found Bulk Upload and Create New Trade easy to locate
+- The trade-entry screen was considered intuitive and well designed
+- All participants welcomed the detailed audit-trail concept
+- The entry point for Cancel and Replace was intuitive for most participants
+- The replacement-approval flow felt similar to a standard approval process
+
+It also exposed issues to resolve:
+
+- Participants couldn't always distinguish their own actions from counterparty actions
+- Trade ID needed greater visibility
+- Some warnings looked like hard errors
+- Bulk-upload messaging didn't clearly identify incomplete entries
+- The relationship between original, cancelled and replacement trades was unclear
+- New capabilities such as detailed audit trails and Cancel and Replace needed onboarding and education
+
+[Add a line on how these were addressed]
+
+## Final solution
+
+### 1. Action-led dashboard
+
+The dashboard was designed to foreground work requiring attention, rather
+than operate as a passive list of trades. It prioritised:
+
+- Pending actions
+- Status and ownership
+- Time-sensitive trades
+- Search and filtering
+- Manual trade creation
+- Access to trade history and audit information
+
+The primary rationale was to reduce the time needed to work out "what do I
+need to do next?", particularly for users managing high trade volumes or
+strict cut-offs.
+
+<Figure
+  alt="The Pending Actions dashboard, before and after."
+  caption="The Pending Actions dashboard, before and after."
   ratio="16/9"
   size="1600 × 900px"
 />
 
-## The shift
+### 2. Simplified trade entry
 
-- **From:** a form that reflects the data model
-- **To:** a guided flow that reflects how a trade is actually described
+Trade entry was redesigned to support:
 
-## Validating the idea
+- Block and EFP trade types
+- Multiple futures and physical legs
+- Manual and bulk workflows
+- More compact presentation of information
+- Pre-population where appropriate
+- Visible market-price ranges
+- Duplicate warnings
+- Internal references
+- Clearer dates, labels and terminology
 
-We explored several iterations of:
+Participant feedback supported selecting the trade type from the dashboard,
+visible range information, contract names and easier access to bulk upload.
 
-- Field grouping and progressive disclosure
-- Inline validation and time-remaining cues
-- Bulk and single-trade entry
-- Amendment and cancellation flows
+### 3. Validation at the point of action
 
-[Add two or three key decisions and what testing showed.]
+The future-state platform introduced real-time validation during trade
+entry. The design distinguished between:
 
-<Figure
-  alt="Prototype screens of the guided reporting flow with inline validation."
-  caption="Prototype: guided reporting with inline validation."
-  ratio="16/10"
-  size="1920 × 1200px"
-/>
+- Hard errors that prevent progression
+- Warnings that allow progression with acknowledgement
+- Duplicate or rule-related alerts
+- Clear location of the affected field or trade
+- Explanatory language that supports corrective action
 
-## Final solution
+### 4. Maker/checker and role-aware approvals
 
-### Guided reporting
+The future-state experience incorporated maker/checker authorisation and
+user administration, responding to compliance and operational concerns with
+the existing platform. Approvals were designed as part of the underlying
+transaction state rather than a disconnected administrative section. This
+preserved trade context while making the required person, action and next
+state more visible.
 
-[Describe the core flow.]
+### 5. Audit and history
 
-### Validation before submission
+The platform direction included detailed audit trails and up to two years of
+accessible trade history. Participants wanted to understand:
 
-[Describe how errors are caught early.]
+- Who submitted or modified a trade
+- When a modification occurred
+- How a trade moved through its status history
+- Who approved it
+- How a cancelled trade related to its replacement
 
-### Clear amendment trail
+### 6. Cancel and Replace
 
-[Describe how corrections are made and tracked.]
+The new Cancel and Replace flow aimed to remove a manual, support-dependent
+process by letting participants start cancellation and replacement within
+the platform. The entry point tested well, but the experience needed
+stronger visual differentiation between original, cancelled and replacement
+records. Recommendations included highlighting modified values, and
+improving status language and the relationship between linked trades.
+
+### 7. Unified API and interface capability
+
+The target direction aimed to unify more API and in-app functionality,
+reducing the capability gap between users who integrate directly and those
+who rely on the portal.
+
+## Outputs and impact
+
+### Influence on the programme
+
+UX was recognised as a success and a key part of delivering the programme.
+The design approach was embedded into the delivery framework, setting the
+standard for projects going forward.
+
+### Outputs
+
+An evidence-backed future-state direction that connected service
+transformation to capabilities the platform could deliver:
+
+- A mapped current-state service across participant and employee touchpoints
+- A redesigned dashboard and trade-entry experience
+- Defined maker/checker and role-based workflow requirements
+- Real-time validation patterns
+- Detailed audit and reporting concepts
+- An in-platform Cancel and Replace workflow
+- Stronger alignment between portal and API capabilities
+- Reusable design-system patterns for the new experience
+- Two rounds of customer validation feeding directly into design refinement
+
+### De-risking change
+
+Design reduced transformation risk and built delivery confidence by:
+
+- Converting fragmented customer and operational evidence into a shared future-state model
+- Testing high-risk workflows before implementation
+- Revealing ambiguous warnings, statuses and record relationships before production use
+- Validating the discoverability of major actions such as Bulk Upload, audit access and Cancel and Replace
+- Establishing reusable platform patterns instead of screen-by-screen inconsistency
+- Connecting customer expectations with roles, permissions, APIs and downstream technical constraints
+- Creating a clearer design basis for requirements, architecture, build and testing
 
 ## Measuring success
 
-- Reporting error and correction rate
-- Time to submit
-- Late report volume
-- Support case volume
+**Baseline:** Participants spent up to several hours a day on trade
+registration, manual validation took around three to six minutes per deal,
+and each cancellation cost $325 and required support.
+
+Metrics to be measured post-launch:
+
+- Reduction in manual trade-cancellation contacts
+- Reduction in participant setup time
+- Reduction in Trading Operations validation effort
+- Task-completion improvement for trade entry and approval
+- Reduction in support tickets and password or access requests
+- Change in data-entry and trade-submission errors
+- Design-system component adoption rate
+- Improvement in design-to-development cycle time
+- Post-launch CSAT or participant-effort score
+- Commercial or operational cost avoidance
 
 ## Reflection
 
-[What you learned, and what you'd do differently.]
-
-## Next horizon
-
-[Where the work goes next, e.g. API submission or automated pre-fill.]
+- **Earlier involvement:** Involving design earlier in the programme
+- **More testing:** Pushing for more prototyping and usability testing
+- **Wider playback:** More exposure and playback to the business outside the project
