@@ -1,11 +1,21 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, type ReactNode } from "react";
 import { unlockArticle, type UnlockState } from "@/lib/actions";
 
 const initialState: UnlockState = {};
 
-export function ArticleGate({ title, backHref }: { title: string; backHref: string }) {
+export function ArticleGate({
+  title,
+  backHref,
+  breadcrumbs,
+  children,
+}: {
+  title: string;
+  backHref: string;
+  breadcrumbs?: ReactNode;
+  children?: ReactNode;
+}) {
   const [state, formAction, pending] = useActionState(unlockArticle, initialState);
 
   return (
@@ -13,9 +23,10 @@ export function ArticleGate({ title, backHref }: { title: string; backHref: stri
       role="dialog"
       aria-modal="true"
       aria-labelledby="article-gate-title"
-      className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-ink/50 px-6 py-16 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex min-h-screen items-center justify-center overflow-y-auto bg-ink/50 px-6 py-16 backdrop-blur-sm"
     >
       <div className="w-full max-w-sm rounded-2xl border border-line bg-paper p-8 text-center shadow-xl">
+        {breadcrumbs && <div className="mb-6 text-left">{breadcrumbs}</div>}
         <p className="label-eyebrow mb-4">Protected</p>
         <h1 id="article-gate-title" className="font-display text-2xl font-medium text-ink">
           {title}
@@ -41,12 +52,15 @@ export function ArticleGate({ title, backHref }: { title: string; backHref: stri
           </button>
           {state.error && <p className="font-mono text-xs text-amber">{state.error}</p>}
         </form>
-        <a
-          href={backHref}
-          className="mt-6 inline-block font-mono text-xs text-ink/50 hover:text-slate"
-        >
-          ← Back
-        </a>
+        {children && <div className="mt-8">{children}</div>}
+        {!breadcrumbs && (
+          <a
+            href={backHref}
+            className="mt-6 inline-block font-mono text-xs text-ink/50 hover:text-slate"
+          >
+            ← Back
+          </a>
+        )}
       </div>
     </div>
   );

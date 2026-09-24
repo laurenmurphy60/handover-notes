@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getAllPreviousWork, getPreviousWorkBySlug } from "@/lib/content";
 import { MdxContent } from "@/components/MdxContent";
 import { ArticleGate } from "@/components/ArticleGate";
+import { Breadcrumbs, PrevNext, getNeighbours } from "@/components/ArticleNav";
 import { isSessionUnlocked } from "@/lib/auth";
 
 export async function generateStaticParams() {
@@ -38,12 +39,24 @@ export default async function PreviousWorkDetailPage({
 
   const { meta, content } = getPreviousWorkBySlug(slug);
 
+  const section = { href: "/writing", label: "Previous work" };
+  const { prev, next } = getNeighbours(items, slug);
+
   if (meta.protected && !(await isSessionUnlocked())) {
-    return <ArticleGate title={meta.title} backHref="/writing" />;
+    return (
+      <ArticleGate
+        title={meta.title}
+        backHref="/writing"
+        breadcrumbs={<Breadcrumbs section={section} title={meta.title} />}
+      >
+        <PrevNext basePath="/writing" prev={prev} next={next} compact />
+      </ArticleGate>
+    );
   }
 
   return (
     <article className="mx-auto max-w-prose px-6 py-16 sm:py-20">
+      <Breadcrumbs section={section} title={meta.title} className="mb-10" />
       <p className="label-eyebrow mb-4">{meta.company} · {meta.period}</p>
       <h1 className="font-display text-3xl font-medium text-ink sm:text-4xl">
         {meta.title}
@@ -69,6 +82,10 @@ export default async function PreviousWorkDetailPage({
 
       <div className="mt-12">
         <MdxContent source={content} />
+      </div>
+
+      <div className="mt-16 border-t border-line pt-10">
+        <PrevNext basePath="/writing" prev={prev} next={next} />
       </div>
     </article>
   );
