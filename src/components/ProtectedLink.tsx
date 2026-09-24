@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { unlockArticle } from "@/lib/actions";
+import { unlock } from "@/lib/actions";
+import { useUnlock } from "@/components/UnlockProvider";
 
 /**
  * Index-page link for a case study.
@@ -32,6 +33,7 @@ export function ProtectedLink({
   const [pending, startTransition] = useTransition();
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+  const { token, setToken } = useUnlock();
 
   useEffect(() => {
     if (!open) return;
@@ -46,7 +48,7 @@ export function ProtectedLink({
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  if (!locked) {
+  if (!locked || token) {
     return (
       <Link href={href} className={className}>
         {children}
@@ -56,19 +58,18 @@ export function ProtectedLink({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const password = String(new FormData(e.currentTarget).get("password") || "");
 
     startTransition(async () => {
-      const result = await unlockArticle({}, formData);
+      const result = await unlock(password);
 
-      if (result.error) {
-        setError(result.error);
+      if (result.error || !result.token) {
+        setError(result.error ?? "Something went wrong.");
         return;
       }
 
       setOpen(false);
-      // Refresh so other entries on this index drop their lock state too.
-      router.refresh();
+      setToken(result.token);
       router.push(href);
     });
   }

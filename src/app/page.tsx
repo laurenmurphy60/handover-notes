@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { getAllWork } from "@/lib/content";
 import { ProtectedLink } from "@/components/ProtectedLink";
-import { isSessionUnlocked } from "@/lib/auth";
 
 export default async function HomePage() {
   const work = getAllWork().filter((w) => w.featured).slice(0, 3);
-  const unlocked = await isSessionUnlocked();
 
   return (
     <>
@@ -55,7 +53,7 @@ export default async function HomePage() {
               <ProtectedLink
                 key={item.slug}
                 href={`/work/${item.slug}`}
-                locked={Boolean(item.protected) && !unlocked}
+                locked={Boolean(item.protected)}
                 title={item.title}
                 className="group block border-t border-line pt-5"
               >

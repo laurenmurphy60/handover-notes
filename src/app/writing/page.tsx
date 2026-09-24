@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getAllPreviousWork } from "@/lib/content";
 import { ProtectedLink } from "@/components/ProtectedLink";
-import { isSessionUnlocked } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Previous work — Lauren Murphy",
@@ -9,7 +8,6 @@ export const metadata: Metadata = {
 
 export default async function PreviousWorkIndexPage() {
   const work = getAllPreviousWork();
-  const unlocked = await isSessionUnlocked();
 
   return (
     <section className="mx-auto max-w-page px-6 py-16 sm:py-20">
@@ -27,7 +25,7 @@ export default async function PreviousWorkIndexPage() {
           <ProtectedLink
             key={item.slug}
             href={`/writing/${item.slug}`}
-            locked={Boolean(item.protected) && !unlocked}
+            locked={Boolean(item.protected)}
             title={item.title}
             className="group flex flex-col gap-3 py-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
           >
