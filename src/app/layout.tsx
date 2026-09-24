@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { UnlockProvider } from "@/components/UnlockProvider";
 import "./globals.css";
 
 const display = DM_Sans({
@@ -38,9 +39,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="flex min-h-screen flex-col font-body antialiased">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <UnlockProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </UnlockProvider>
       </body>
     </html>
   );

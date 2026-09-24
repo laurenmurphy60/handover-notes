@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllWork, getWorkBySlug } from "@/lib/content";
-import { MdxContent } from "@/components/MdxContent";
-import { ArticleGate } from "@/components/ArticleGate";
-import { isSessionUnlocked } from "@/lib/auth";
+import { ArticleBody } from "@/components/ArticleBody";
+import { ProtectedArticle } from "@/components/ProtectedArticle";
+import { Breadcrumbs, PrevNext, getNeighbours } from "@/components/ArticleNav";
 
 export async function generateStaticParams() {
   return getAllWork().map((item) => ({ slug: item.slug }));
@@ -38,37 +38,28 @@ export default async function WorkDetailPage({
 
   const { meta, content } = getWorkBySlug(slug);
 
-  if (meta.protected && !(await isSessionUnlocked())) {
-    return <ArticleGate title={meta.title} backHref="/work" />;
-  }
+  const section = { href: "/work", label: "Current work" };
+  const { prev, next } = getNeighbours(items, slug);
 
   return (
     <article className="mx-auto max-w-prose px-6 py-16 sm:py-20">
-      <p className="label-eyebrow mb-4">{meta.company} · {meta.period}</p>
-      <h1 className="font-display text-3xl font-medium text-ink sm:text-4xl">
-        {meta.title}
-      </h1>
-      <p className="mt-3 text-lg text-ink/65">{meta.role}</p>
+      <Breadcrumbs section={section} title={meta.title} className="mb-10" />
 
-      {meta.metric && (
-        <p className="mt-6 inline-block rounded-full bg-ink px-4 py-1.5 font-mono text-sm text-amber">
-          {meta.metric}
-        </p>
+      {meta.protected ? (
+        <ProtectedArticle
+          kind="work"
+          slug={slug}
+          title={meta.title}
+          breadcrumbs={<Breadcrumbs section={section} title={meta.title} />}
+        >
+          <PrevNext basePath="/work" prev={prev} next={next} compact />
+        </ProtectedArticle>
+      ) : (
+        <ArticleBody meta={meta} content={content} />
       )}
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        {meta.tags.map((tag: string) => (
-          <span
-            key={tag}
-            className="rounded-full border border-line px-2.5 py-0.5 font-mono text-xs text-ink/55"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-12">
-        <MdxContent source={content} />
+      <div className="mt-16 border-t border-line pt-10">
+        <PrevNext basePath="/work" prev={prev} next={next} />
       </div>
     </article>
   );
