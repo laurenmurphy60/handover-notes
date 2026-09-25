@@ -18,7 +18,7 @@ export function ArticleBody({
         // The wrapper clips each row's leading separator, so dots only ever
         // appear between items, even when the line wraps.
         <div className="mt-5 overflow-hidden">
-          <ul className="-ml-5 flex flex-wrap gap-y-2 text-ink/80">
+          <ul className="-ml-5 flex flex-wrap gap-y-1.5 text-sm text-ink/80">
             {meta.facts.map((fact) => (
               <li
                 key={fact.label}
