@@ -110,6 +110,12 @@ The future model needed to support:
 - Individual preferences and entity-owned settings
 - Submissions, approvals, notifications and lifecycle states
 
+<Figure
+  src="/work/modernising-market-disclosures/user-company-relationships.jpg"
+  alt="Relationship diagrams: a user linked to one company or instrument; a user acting through the company they belong to, such as a law firm or outsourced provider, for several companies or instruments; and a company with listed and unlisted arms, each with its own users, entities and instruments."
+  caption="Relationship patterns the model had to support, from one-to-one to one-to-many."
+/>
+
 This sharpened our challenge into a clearer question:
 
 > How might we maintain feature continuity, security and compliance while
@@ -156,10 +162,9 @@ they represent? The answer was a clear ownership boundary.
 </table>
 
 <Figure
-  alt="The four contextual layers (individual, entity or instrument, task or record, state) as a stacked diagram."
-  caption="Four persistent contextual layers."
-  ratio="4/3"
-  size="1200 × 900px"
+  src="/work/modernising-market-disclosures/contextual-layers-flow.jpg"
+  alt="Contextual map of functions: four stacked layers (individual user; company or instrument; forms, announcements and submissions; state such as draft, rejected or approved), followed by a flow from a dashboard of notifications, into a task holding all four layers of context, through approve or reject, and back to a contextual place confirming the task has been actioned."
+  caption="The four contextual layers, and how a task keeps its context from dashboard to approval."
 />
 
 <Figure
@@ -189,6 +194,24 @@ iterations of:
 
 We wanted to create something new enough to support the future platform, but
 familiar enough for users to trust their instincts.
+
+<Figure
+  src="/work/modernising-market-disclosures/navigation-concept-1.jpg"
+  alt="Wireframe concept 1: side navigation grouped into core actions (apply, explore, subscribe), outstanding items such as a pending listing application, and the applications the user has permission for, with the company or instrument context shown above the main content and individual settings in the header."
+  caption="Concept 1: side navigation grouped by core actions, outstanding items and permitted applications."
+/>
+
+<Figure
+  src="/work/modernising-market-disclosures/navigation-concept-2.jpg"
+  alt="Wireframe concept 2: core actions moved into the top navigation alongside Applications and individual settings, with permitted applications listed on the left and a context bar for the selected application offering Select Company and Select Instrument."
+  caption="Concept 2: core actions in the top navigation, with company and instrument selection in a context bar."
+/>
+
+<Figure
+  src="/work/modernising-market-disclosures/navigation-concept-3.jpg"
+  alt="Wireframe concept 3: an ASX Portal header with Apply, Explore, Subscribe, a Submissions menu and settings, a context bar for AOL Companies and Compliance with company and instrument selectors, a Create Announcement action, task cards, and a most recent announcements table."
+  caption="Concept 3: a task-led landing page within the selected company context."
+/>
 
 [Add two or three key decisions here, e.g. "We landed on ___ navigation because ___" and "We supported both task-first and company-first entry by ___."]
 
