@@ -1,4 +1,5 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 // Renders an image with a caption. Without `src` it shows a placeholder box at
 // the given aspect ratio, so visuals can be dropped in later by adding `src`.
@@ -18,8 +19,7 @@ function Figure({
   return (
     <figure className="not-prose my-10">
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt} className="w-full rounded-lg border border-line" />
+        <ZoomableImage src={src} alt={alt} />
       ) : (
         <div
           role="img"

@@ -3,7 +3,7 @@ import { getAllWork } from "@/lib/content";
 import { ProtectedLink } from "@/components/ProtectedLink";
 
 export default async function HomePage() {
-  const work = getAllWork().filter((w) => w.featured).slice(0, 3);
+  const work = getAllWork();
 
   return (
     <>
@@ -33,7 +33,7 @@ export default async function HomePage() {
       {/* Featured work */}
       <section className="mx-auto max-w-page px-6 py-20">
         <div className="mb-10 flex items-baseline justify-between">
-          <h2 className="font-display text-2xl text-ink">Selected work</h2>
+          <h2 className="font-display text-2xl text-ink">Current work</h2>
           <Link href="/work" className="font-mono text-sm text-slate hover:underline">
             View all →
           </Link>
@@ -45,7 +45,7 @@ export default async function HomePage() {
             <code className="rounded bg-ink/5 px-1.5 py-0.5 font-mono text-sm">
               src/content/work
             </code>{" "}
-            with <code className="rounded bg-ink/5 px-1.5 py-0.5 font-mono text-sm">featured: true</code> to show them here.
+            to show them here.
           </p>
         ) : (
           <div className="grid gap-8 sm:grid-cols-3">

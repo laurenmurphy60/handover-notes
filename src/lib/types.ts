@@ -9,6 +9,7 @@ export type WorkFrontmatter = {
   featured?: boolean;
   draft?: boolean;
   protected?: boolean; // require the site-wide password before showing the full write-up
+  facts?: { label: string; value: string }[]; // shown as one line under the title, e.g. Role, Team, Timeline
 };
 
 export type NowFrontmatter = {

@@ -1,19 +1,23 @@
 ---
 title: "Modernising compulsory and voluntary market disclosures"
-role: "[Your title], leading a service designer and a product designer"
-company: "[Company]"
-period: "[Period]"
+role: "Design Lead"
+company: "ASX"
+period: "2026"
 summary: "Modernise compulsory and voluntary market disclosures by building a user-centric system based on individual identity, multi-entity relationships, contextual navigation and entitlement-controlled access."
 tags: ["service design", "product design", "identity and access"]
 featured: false
-draft: true
+draft: false
 protected: true
+facts:
+  - label: "Role"
+    value: "Design Lead"
+  - label: "Team"
+    value: "Service designer + product designer"
+  - label: "Partners"
+    value: "Product, engineering, cyber, business"
+  - label: "Timeline"
+    value: "2–3 months"
 ---
-
-- **Role:** [Your title], leading a service designer and a product designer
-- **Partners:** Product, engineering, cyber security and the business
-- **Timeline:** 2–3 months of focused design work within an ongoing transformation project
-- **Status:** [e.g. Concept validated with customers; now in delivery]
 
 **In short:** By reframing the problem around users rather than legacy
 systems and data structures, this work changed from a screen redesign into
@@ -30,7 +34,7 @@ the design of a future operating model for a regulated digital ecosystem.
 
 ## The challenge
 
-[Platform name] is a critical digital channel for capturing and distributing
+The platform is a critical digital channel for capturing and distributing
 compulsory and voluntary market disclosures across listed companies and
 exchange-traded funds. It also provides access to structured and unstructured
 announcements, supporting material, listing rules, waivers, company details,
@@ -82,15 +86,6 @@ Our research and data analysis identified a broad spectrum of relationships:
 - Actions belonging to the individual rather than a company
 - Regulatory actions, submissions and data belonging to a represented entity or instrument
 
-[If you have it, add a number here, e.g. "X% of active users held more than one login."]
-
-<Figure
-  alt="Before and after: many logins tied to issuer codes, compared with one person holding authorised relationships to many entities."
-  caption="Before and after: from many issuer-bound logins to one identity with authorised relationships."
-  ratio="16/9"
-  size="1600 × 900px"
-/>
-
 ## The shift
 
 - **From:** one issuer code, one login
@@ -109,6 +104,12 @@ The future model needed to support:
 - Task-first and company-first workflows
 - Individual preferences and entity-owned settings
 - Submissions, approvals, notifications and lifecycle states
+
+<Figure
+  src="/work/modernising-market-disclosures/user-company-relationships.jpg"
+  alt="Relationship diagrams: a user linked to one company or instrument; a user acting through the company they belong to, such as a law firm or outsourced provider, for several companies or instruments; and a company with listed and unlisted arms, each with its own users, entities and instruments."
+  caption="Relationship patterns the model had to support, from one-to-one to one-to-many."
+/>
 
 This sharpened our challenge into a clearer question:
 
@@ -156,17 +157,9 @@ they represent? The answer was a clear ownership boundary.
 </table>
 
 <Figure
-  alt="The four contextual layers (individual, entity or instrument, task or record, state) as a stacked diagram."
-  caption="Four persistent contextual layers."
-  ratio="4/3"
-  size="1200 × 900px"
-/>
-
-<Figure
-  alt="The ownership boundary as a two-column graphic: individual-owned versus entity- or product-owned."
-  caption="The ownership boundary between the individual and the entity they represent."
-  ratio="16/9"
-  size="1600 × 900px"
+  src="/work/modernising-market-disclosures/contextual-layers-flow.jpg"
+  alt="Contextual map of functions: four stacked layers (individual user; company or instrument; forms, announcements and submissions; state such as draft, rejected or approved), followed by a flow from a dashboard of notifications, into a task holding all four layers of context, through approve or reject, and back to a contextual place confirming the task has been actioned."
+  caption="The four contextual layers, and how a task keeps its context from dashboard to approval."
 />
 
 ## Validating the idea
@@ -190,18 +183,32 @@ iterations of:
 We wanted to create something new enough to support the future platform, but
 familiar enough for users to trust their instincts.
 
-[Add two or three key decisions here, e.g. "We landed on ___ navigation because ___" and "We supported both task-first and company-first entry by ___."]
+<Figure
+  src="/work/modernising-market-disclosures/navigation-concept-1.jpg"
+  alt="Wireframe concept 1: side navigation grouped into core actions (apply, explore, subscribe), outstanding items such as a pending listing application, and the applications the user has permission for, with the company or instrument context shown above the main content and individual settings in the header."
+  caption="Concept 1: side navigation grouped by core actions, outstanding items and permitted applications."
+/>
+
+<Figure
+  src="/work/modernising-market-disclosures/navigation-concept-2.jpg"
+  alt="Wireframe concept 2: core actions moved into the top navigation alongside Applications and individual settings, with permitted applications listed on the left and a context bar for the selected application offering Select Company and Select Instrument."
+  caption="Concept 2: core actions in the top navigation, with company and instrument selection in a context bar."
+/>
+
+<Figure
+  src="/work/modernising-market-disclosures/navigation-concept-3.jpg"
+  alt="Wireframe concept 3: an ASX Portal header with Apply, Explore, Subscribe, a Submissions menu and settings, a context bar for AOL Companies and Compliance with company and instrument selectors, a Create Announcement action, task cards, and a most recent announcements table."
+  caption="Concept 3: a task-led landing page within the selected company context."
+/>
 
 Interactive prototypes became a major tool for alignment and reducing risk,
-and the final concept was tested with [number] customers.
+and the final concept was tested with customers.
 
 A significant finding was the contrast between internal and customer
 responses. Some internal subject-matter experts initially struggled with the
 proposed model because of their familiarity with the existing system.
 Customers responded more instinctively, understood how to move between
 company contexts, and embraced the more modern experience.
-
-[How did you bring the internal experts along? This is your strongest leadership moment.]
 
 ## Final solution
 
@@ -226,12 +233,24 @@ data and actions are available. This includes:
 - Company and instrument selection
 - Applying submissions to one or multiple companies and products
 
+<Figure
+  src="/work/modernising-market-disclosures/company-instrument-selector.jpg"
+  alt="Upload submission screen with the company and instrument selector open in the header, showing two selected items at the top, a list of all companies and instruments with checkboxes, and Select all, Clear all and Done actions."
+  caption="Selecting one or more companies and instruments for a submission."
+/>
+
 ### Context that travels with the task
 
 The relationship between individual, entity, task and state is maintained as
 users navigate, receive notifications, hand work between colleagues and
 complete approvals. This reduces the risk of users acting for the wrong
 entity or losing context during sensitive compliance work.
+
+<Figure
+  src="/work/modernising-market-disclosures/home-dashboard.jpg"
+  alt="Home dashboard with a company and instrument selector in the header, side navigation, summary cards for submissions, submissions to review, drafts and active users, a recent submissions table, and a submissions to review list with Review links."
+  caption="Home: work waiting for the user, including submissions handed to them for review."
+/>
 
 ### Role- and policy-based access
 
@@ -255,13 +274,10 @@ The experience makes compliant behaviour easier through:
 - Proactive alerts, reminders and guidance
 - Transparent errors and recovery paths
 
-[What happened next, e.g. "The model was adopted as the target architecture and now shapes the delivery backlog."]
-
 <Figure
-  alt="Prototype screens showing the entity switcher, landing page and a submission moving through its states."
-  caption="Prototype: entity switcher, landing page and submission states."
-  ratio="16/10"
-  size="1920 × 1200px"
+  src="/work/modernising-market-disclosures/upload-submission.jpg"
+  alt="Upload submission form in draft, with breadcrumbs, a sections tracker showing 0 of 3 completed, and fields for primary organisation with inline help, optional submission type that prefills the header, announcement header with character guidance, and market-sensitive and cross-release questions."
+  caption="Upload submission: guided sections, inline help and validation guidance."
 />
 
 ## Baseline and measuring success
@@ -289,8 +305,6 @@ connecting individuals, organisations, instruments, roles, permissions, tasks
 and states, rather than letting these be shaped by our legacy structures and
 data models. This changed the programme from a screen redesign into the
 design of a future operating model for a regulated digital ecosystem.
-
-[Optional: one sentence on what you learned as a leader, or what you'd do differently.]
 
 ## Next horizon
 
