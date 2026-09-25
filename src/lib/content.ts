@@ -21,10 +21,13 @@ function readFile(dir: string, slug: string) {
   return matter(raw);
 }
 
-const isProd = process.env.NODE_ENV === "production";
+// Drafts are hidden on the live site but shown in local dev and on Vercel
+// preview deployments, so they can be reviewed before publishing.
+const hideDrafts =
+  process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview";
 
 function notDraft(draft?: boolean) {
-  return isProd ? !draft : true;
+  return hideDrafts ? !draft : true;
 }
 
 // ---------- Work ----------
